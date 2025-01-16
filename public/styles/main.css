@@ -1,0 +1,333 @@
+/* Font styling for Roboto Condensed */
+.roboto-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* General body styling */
+body {
+  background-color: #004b84; /* Dark blue background */
+}
+
+/* Heading styling */
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Main container styling */
+#container {
+  background-color: #004b84; /* Matches the body background */
+  padding: 3rem;
+  margin: 0;
+  height: 84vh; /* Takes up 84% of viewport height */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+  grid-template-rows: repeat(3, 1fr); /* Three equal rows */
+  grid-gap: 20px; /* Space between grid items */
+}
+
+/* Border styling for rounded edges */
+.border {
+  border-radius: 30px; /* Rounded corners */
+  margin: 0;
+}
+
+/* Logo section styling */
+#logo {
+  background-color: white;
+  order: 1; /* Positions the logo first in flex/grid order */
+}
+
+/* Text color for pink highlights */
+.text-color-pink {
+  color: #df608f; /* Soft pink color */
+}
+
+/* Date section styling */
+#date {
+  background-color: #f974a6; /* Light pink background */
+  order: 2; /* Second in flex/grid order */
+}
+
+/* Weather section styling */
+#weather {
+  background-color: #f974a6;
+  order: 3; /* Third in flex/grid order */
+  grid-column: 3 / span 2; /* Spans two columns in the grid */
+}
+
+/* Meme section styling */
+#meme {
+  background-color: #f974a6;
+  order: 8; /* Last in flex/grid order */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around; /* Space between items */
+  align-items: center; /* Center-align items */
+}
+
+/* Holidays section styling */
+#hoidays {
+  background-color: #79c9fa; /* Light blue background */
+  order: 4; /* Fourth in flex/grid order */
+  grid-row: 2 / span 2; /* Spans two rows in the grid */
+}
+
+/* Day plan section styling */
+#dayPlan {
+  background-color: #79c9fa;
+  order: 5; /* Fifth in flex/grid order */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Other projects section styling */
+#other-projects {
+  background-color: #79c9fa;
+  order: 6; /* Sixth in flex/grid order */
+  grid-area: 2 / 3 / span 2 / 4; /* Specific grid placement */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* New services section styling */
+#newServices {
+  background-color: #ffa5c6; /* Pale pink background */
+  order: 7; /* Seventh in flex/grid order */
+  grid-area: 2 / 4 / span 2 / span 1; /* Specific grid placement */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Vertical flex layout for centering */
+.verticalFlex {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Input field styling for date picker */
+input[type="date"] {
+  width: 92%; /* Almost full width */
+  background-color: white;
+  padding: 12px; /* Larger padding for better usability */
+  font-size: 16px; /* Larger text size */
+  border-radius: 10px; /* Rounded edges */
+  border: 1px solid #ccc; /* Light border color */
+  outline: none; /* Removes focus outline */
+  font-family: Arial, sans-serif;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+/* Placeholder text styling for input */
+input[type="date"]::placeholder {
+  color: #999; /* Light gray placeholder color */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+
+/* Flex layout with space between items */
+.flex-space-between {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Margin for date section */
+.margin-for-date {
+  margin-top: 10px;
+  margin-left: 35%;
+}
+
+/* Weather heading styling */
+#weatherHeading {
+  color: white;
+  font-weight: 600;
+}
+
+/* Inner image styling */
+.inner img {
+  float: left;
+  width: 80px;
+  height: 80px;
+}
+
+/* Inner section spacing */
+.inner {
+  margin: 2%;
+}
+
+/* Temperature text styling */
+#temp {
+  font-size: 4rem;
+  float: left;
+  color: white;
+}
+
+/* Clear floats */
+.floatclear {
+  clear: left;
+  padding: 0;
+}
+
+.floatclear p {
+  padding: 0;
+  margin: 0;
+  color: #004b84;
+  font-weight: bold;
+}
+
+/* Location text styling */
+#location {
+  color: white;
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+
+/* Holidays container styling */
+.container-holidays {
+  width: 94%;
+  background-color: #004b84;
+  height: 85%;
+}
+
+.container-holidays p {
+  padding: 0;
+  margin: 0;
+  margin-left: 2rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Dates container styling */
+.dates-container {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap; /* Wraps items to the next line */
+  gap: 10px; /* Adds space between items */
+  padding: 10px;
+  margin-right: 5px;
+}
+
+/* Individual date item styling */
+.date-item {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Day plan container styling */
+.container-day-plan {
+  width: 94%;
+  background-color: #004b84;
+  height: 50%;
+}
+
+/* Joke container styling */
+.container-joke {
+  width: 94%;
+  background-color: #004b84;
+  min-height: 45%;
+}
+
+/* Image height adjustments */
+#other-projects img {
+  height: 60%;
+}
+
+#newServices img {
+  height: 50%;
+}
+
+/* Link height adjustments */
+#other-prjects a {
+  height: 60%;
+}
+
+#newServices a {
+  height: 100%;
+}
+
+/* Optional margin adjustments */
+.margin-optional {
+  margin-top: 6rem;
+}
+
+/* Scaling container for responsiveness */
+.container {
+  transform: scale(1); /* Default scale */
+  transform-origin: top left; /* Scaling relative to top-left corner */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling transition */
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 1927px) {
+  #container {
+    transform: scale(1); /* Maintains full size */
+  }
+
+  h1{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  #location {
+    color: white;
+    font-weight: bolder;
+    font-size: 270%;
+  }
+
+  #other-projects img {
+    height: 40%;
+}
+
+.date-item {
+  display: inline-block;
+  padding: 1px 2px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #333;
+}
+
+#days-list p {
+  font-size: 13px;
+}
+
+  .margin-optional{
+    margin-top: 3rem;
+  }
+
+  #newServices img {
+    height: 30%;
+}
+
+#other-projects img {
+  height: 40%;
+}
+}
+
+/* Explanation for large screen scaling */
+@media (min-width: 1930px) {
+  /* Styles apply to screens wider than 1930px */
+}

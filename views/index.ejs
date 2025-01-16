@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend+Long</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="roboto-condensed">
+    <div id="container">
+        <div id ="logo" class="border">
+            <div class="verticalFlex text-color-pink">
+                <h1>WEEKEND</h1>
+                <h1>+ LONG</h1>
+            </div>
+        </div>
+<!--***************************************************************************************************************************************************************************-->
+        <div id="date" class="border">
+            <div class="flex-space-between">
+                <h1>Custom Date</h1>
+                <form id="submit-btn">                    
+                    <input type="date" id="date-submit" name="date">
+                    <button type="submit" class="margin-for-date">Submit</button>
+                </form>
+            </div>
+        </div>
+<!--***************************************************************************************************************************************************************************-->
+<!--weather-->
+        <div id="weather" class="border">
+            <% if (locals.weather) {%>
+                <h1 id="weatherHeading">Weather</h1>
+                <div class="inner">
+                    <img src="<%= weather[0] %>" alt="weather-icon">
+                    <h1 id="temp"><%= weather[1] %> °C</h1>
+                    <div class="floatclear">
+                        <p id="location"><%= weather[2] %>, Telangana, India</p>
+                        <p>Discription : <%= weather[3] %></p>
+                        <p>Wind speed : <%= weather[4] %> km/h</p>
+                        <p>Humidity : <%= weather[5] %> %</p>
+                    </div>                    
+                </div>
+            <% } %>
+        </div>
+<!--holidays-->
+        <div id="hoidays" class="border flex-space-between" style="padding : 0">
+            <h1>Holidays</h1>
+            <div id="holidays-container" class="container-holidays border">
+                <h1 style="color: white;">Days</h1>
+                <div id="days-list">
+                  <% if (locals.holidays) { %>
+                    <% holidays.days.forEach(day => { %>
+                      <p><%= day %></p>
+                    <% }); %>
+                  <% } %>
+                </div>       
+                <h1 style="color: white;">Dates</h1>                <div class="dates-container" id = "dates-container">
+                    <% if (locals.holidays) { %>
+                        <% holidays.dates.forEach(element => { %>
+                            <span class="date-item"><%= element %></span>
+                        <%}); %>
+                    <% } %> 
+                </div>
+            </div>
+        </div>
+<!--******************************************************************************************************************************************-->
+        <div id="dayPlan" class="border">
+            <h1>Plan you days</h1>
+            <div class="container-day-plan border">
+                <div class="dates-container">
+                    <% if (locals.dayPlan) { %>     
+                        <p style="text-align: center; color: white; margin-left: 3%;"><%= dayPlan %></p>
+                    <% } %>
+                    <% if (locals.error){ %>
+                        <div id="tag-error" class="tag-error">
+                          <%= error %>
+                       </div>
+                      <%}%>
+                </div>
+            </div>
+        </div>
+        <div id="meme" class="border">
+            <h1>Dad Jokes</h1>
+            <div class="container-joke border">
+                <div class="dates-container">
+                    <% if (locals.joke) { %>     
+                        <p style="text-align: center; color: white; margin-left: 3%;"><%= joke %></p>
+                    <% } %>
+                    <% if (locals.error){ %>
+                        <div id="tag-error" class="tag-error">
+                          <%= error %>
+                       </div>
+                      <%}%>
+                </div>
+            </div>
+        </div>
+        <div id="other-projects" class="border">
+            <h1 style="margin-top: 4%;">Other Projects</h1>
+            <div class="margin-optional">
+                <a href="https://github.com/Sri-Ranga9989" target="_blank"><img id = "flying" src="images/flying thing.png" alt="other projects images"></a>
+            </div>
+                
+
+        </div>
+        <div id="newServices" class="border">
+            <h1 style="margin-top: 4%;">Portfolio</h1>
+                <div class="margin-optional">
+                    <a href="https://sri-ranga-2002.github.io/Portfolio/" target="_blank"><img id="rocket" src="images/rockety.png" alt="Portfolio page dicreciotn"></a>
+                </div>
+                
+
+            
+        </div>
+    </div>
+
+<!--***************************************************************************************************************************************************************************-->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+
+            document.getElementById("submit-btn").addEventListener("submit",async (event)=>{
+                event.preventDefault();
+                
+                date = document.getElementById("date-submit").value;
+
+                try{
+
+                    
+                    const response = await axios.post("/submit-date",{date});
+                    const holidays = response.data.data;   
+                    console.log(holidays);
+                      // Assuming 'holidays' is the data received from the request
+                      alert(JSON.stringify(holidays, null, 2));
+
+                    const daysList = document.getElementById("days-list");
+                    console.log(daysList);
+                    daysList.innerHTML = holidays.days.map(days => `<p>${days}</p>`).join("");
+                    
+                    const datesContainer = document.getElementById("dates-container");
+                    datesContainer.innerHTML = holidays.dates.map(date => `<span class = "date-item">${date}</span>`).join("");
+
+            } catch (error) {
+                console.error("Failed to fetch holidays:", error);
+                alert("Failed to fetch holidays. Please try again.");
+            }
+            });
+        </script>
+    </body>
+</html>
